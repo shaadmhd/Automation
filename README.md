@@ -92,7 +92,6 @@ VS Code needs an extension to understand and run Python code.
 2.  In the search bar, type `Python`.
 3.  Look for the extension simply named **"Python"** published by **Microsoft**.
 4.  Click the **"Install"** button next to it.
-    *(Screenshot example: Show VS Code extensions sidebar with Python extension highlighted and "Install" button)*
 
 #### d. Install Required Python Libraries
 
@@ -105,7 +104,6 @@ The script uses several specialized Python libraries. You need to install them.
     pip install -r requirements.txt
     ```
 4.  Wait for the installation process to complete. You will see messages indicating that packages are being downloaded and installed. This might take a few minutes. If you see any errors here, **STOP** and contact Shaad immediately.
-    *(Screenshot example: Show the VS Code terminal with the pip install command and successful output)*
 
 ---
 
