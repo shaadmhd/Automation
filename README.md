@@ -20,9 +20,10 @@ Python is the programming language this tool is built with.
 
 1.  Go to the official Python download page: [https://www.python.org/downloads/](https://www.python.org/downloads/)
 2.  Download the **latest stable version of Python 3** (e.g., Python 3.10.x, 3.11.x, or 3.12.x). Choose the installer appropriate for your Windows system (e.g., "Windows installer (64-bit)").
+![1750581644094](image/README/1750581644094.jpg)
 3.  Run the downloaded installer (`.exe` file).
 4.  **VERY IMPORTANT STEP:** On the first screen of the installer, make sure to **check the box that says "Add Python.exe to PATH"**. This is critical for the tool to work correctly.
-    *(Screenshot example: Show a screenshot of the Python installer with "Add Python.exe to PATH" checkbox highlighted)*
+ ![1750581613393](image/README/1750581613393.jpg)
 5.  Click "Install Now" and follow the prompts to complete the installation.
 
 #### b. Install Microsoft Edge Browser
@@ -46,6 +47,7 @@ Some Python libraries, like NumPy and Pandas (which this script uses), require u
 
 1.  **Download Visual Studio Build Tools:**
     * Go to the official Microsoft Visual Studio downloads page: [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)
+    ![1750581685906](image/README/1750581685906.jpg)
     * Scroll down to the **"Tools for Visual Studio"** section.
     * Find **"Build Tools for Visual Studio"** and click the **"Download"** button.
 
@@ -55,9 +57,9 @@ Some Python libraries, like NumPy and Pandas (which this script uses), require u
 
 3.  **Select Workloads (IMPORTANT):**
     * In the Visual Studio Installer, you will see a list of "Workloads."
+    ![1750581720002](image/README/1750581720002.jpg)
     * **Crucially, check the box for "Desktop development with C++"**. This is the primary workload that includes the necessary C++ compilers and build tools.
-    * *(Screenshot: Guide them with a screenshot of the Visual Studio Installer with "Desktop development with C++" checked).*
-
+    
 4.  **Install:**
     * Click the **"Install"** button in the bottom right corner.
     * This installation can be large (several gigabytes) and may take some time.
@@ -142,7 +144,6 @@ This is the most reliable way to run the script and see any potential errors.
 
 1.  In VS Code, ensure `automate_leads.py` is open in the editor.
 2.  Look for the **"Run Python File"** button in the **top-right corner of VS Code**. It typically looks like a green play arrow (▶️).
-    *(Screenshot example: Show VS Code editor with `automate_leads.py` open and the "Run Python File" button highlighted)*
 3.  **Click this button.**
     * Alternatively, you can go to the `Run` menu at the top, and select `Run Without Debugging` (or press `Ctrl + F5`).
 4.  The script will start running in the integrated terminal at the bottom of VS Code. You will see progress messages like "Successfully logged in," "Processing Lead 1/X," etc.
