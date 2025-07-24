@@ -31,8 +31,8 @@ def initialize_driver():
         # COMMENTED OUT: service = EdgeService(EdgeChromiumDriverManager().install())
         
         # Path to the manually downloaded msedgedriver.exe
-        # It expects msedgedriver.exe to be in the same directory as this Python script
-        driver_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "msedgedriver.exe")
+        # User specified the driver is located at C:\SeleniumDrivers
+        driver_path = r"C:\SeleniumDrivers\msedgedriver.exe" # <--- FIX: Changed driver path to specified location
         service = EdgeService(driver_path)
         # --- MODIFIED LINE END ---
 
@@ -52,7 +52,7 @@ def initialize_driver():
         print(f"Error initializing WebDriver: {e}")
         print("Please ensure Microsoft Edge is installed and up-to-date.")
         # --- MODIFIED ERROR MESSAGE START ---
-        print("Also, ensure 'msedgedriver.exe' is downloaded (matching your Edge browser version) and placed in the same directory as this script.")
+        print("Also, ensure 'msedgedriver.exe' is downloaded (matching your Edge browser version) and placed in 'C:\\SeleniumDrivers'.")
         # --- MODIFIED ERROR MESSAGE END ---
         return None
 
@@ -166,8 +166,12 @@ def read_excel_data(file_path):
         for col in required_columns:
             if col not in df.columns:
                 print(f"Warning: Column '{col}' not found in Excel file. "
-                      "Adding it with empty values. Please ensure all required column headers match exactly.")
-                df[col] = '' # Add missing column with empty string values
+                      f"Adding it with empty values. Please ensure all required column headers match exactly.")
+                # For 'Country Code', if missing, initialize with '91'
+                if col == "Country Code":
+                    df[col] = '91' 
+                else:
+                    df[col] = '' # Add missing column with empty string values
 
         # Ensure 'Mobile Number' is treated as string to prevent scientific notation (e.g., 9.87E+09)
         # Also remove any decimal parts if they exist after conversion to string
@@ -182,7 +186,11 @@ def read_excel_data(file_path):
                 value = row[col]
                 # Check if value is NaN (from empty Excel cell) or None, convert to empty string
                 if pd.isna(value) or value is None: 
-                    lead_dict[col] = '' 
+                    # If Country Code is empty/NaN in Excel, set to '91' here
+                    if col == "Country Code":
+                        lead_dict[col] = '91'
+                    else:
+                        lead_dict[col] = '' 
                 else:
                     lead_dict[col] = str(value).strip() # Convert to string and strip whitespace
             leads_data_list.append(lead_dict)
@@ -278,12 +286,15 @@ def add_new_lead(driver, lead_data):
         mobile_field.send_keys(lead_data.get('Mobile Number', ''))
         print(f"Filled Mobile Number: {lead_data.get('Mobile Number', '')}")
 
-        # Country Code
+        # Country Code - Using JavaScript for robustness
         try:
             country_code_input = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.ID, "country_code")))
-            country_code_input.clear()
-            country_code_value = lead_data.get('Country Code', 'India (91)') # Default value if not provided
-            country_code_input.send_keys(country_code_value) 
+            # The default '91' is now handled in read_excel_data, so we just use the value from lead_data
+            country_code_value = lead_data.get('Country Code', '') 
+            
+            # Use JavaScript to clear and set the value for higher reliability
+            driver.execute_script("arguments[0].value = '';", country_code_input) # Clear using JS
+            driver.execute_script("arguments[0].value = arguments[1];", country_code_input, country_code_value) # Set value using JS
             print(f"Filled Country Code: {country_code_value}")
         except TimeoutException: print("Timeout: Country Code input field not found. Skipping.")
         except NoSuchElementException: print("NoSuchElement: Country Code input field not found. Skipping.")
@@ -460,7 +471,7 @@ def add_new_lead(driver, lead_data):
             email_field = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.ID, "email"))) 
             email_field.clear()
             email_field.send_keys(lead_data.get("Email", ""))
-            print(f"Filled Email: {lead_data.get('Email', '')}")
+            print(f"Filled Email: {lead_data.get("Email", "")}")
         except TimeoutException: print("Timeout: Email field not found. Skipping. (Please verify its ID)")
         except NoSuchElementException: print("NoSuchElement: Email field not found. Skipping. (Please verify its ID)")
         except Exception as e: print(f"Error filling Email: {e}. Skipping.")
@@ -470,7 +481,7 @@ def add_new_lead(driver, lead_data):
             location_field = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.ID, "location"))) 
             location_field.clear()
             location_field.send_keys(lead_data.get("Location", ""))
-            print(f"Filled Location: {lead_data.get('Location', '')}")
+            print(f"Filled Location: {lead_data.get("Location", "")}")
         except TimeoutException: print("Timeout: Location field not found. Skipping. (Please verify its ID)")
         except NoSuchElementException: print("NoSuchElement: Location field not found. Skipping. (Please verify its ID)")
         except Exception as e: print(f"Error filling Location: {e}. Skipping.")
