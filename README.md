@@ -58,7 +58,7 @@ Go to the official Microsoft Visual Studio downloads page: https://visualstudio.
 
 Scroll down to the "Tools for Visual Studio" section.
 
-<<<<<<< HEAD
+
 e. Install Microsoft Edge WebDriver (Manual Download)
 
 The automation script needs a special driver (`msedgedriver.exe`) to control your Edge browser. This driver must be manually downloaded and placed in a specific location.
@@ -100,9 +100,9 @@ The automation script needs a special driver (`msedgedriver.exe`) to control you
    * If the script fails after an Edge update, repeat steps 1-4 to download the **new, matching version** of `msedgedriver.exe` and replace the old one in `C:\SeleniumDrivers`.
 
 ---
-=======
+
 Find "Build Tools for Visual Studio" and click the "Download" button.
->>>>>>> 7a5d7c0053085f69d576847fff97f5412091e6df
+
 
 Run the Installer (vs_buildtools.exe):
 
@@ -202,11 +202,11 @@ In VS Code, go to Terminal > New Terminal. A terminal window will open at the bo
 
 In the terminal, ensure you are in your project folder (the path in the terminal should end with \Workfreaks-Lead-Automation-main> or your renamed folder name).
 
-<<<<<<< HEAD
+
 ## 😈 How to Use the Automation Tool
-=======
+
 Type the following command exactly as shown and press Enter:
->>>>>>> 7a5d7c0053085f69d576847fff97f5412091e6df
+
 
 pip install -r requirements.txt
 
@@ -260,9 +260,9 @@ The script will start running in the integrated terminal at the bottom of VS Cod
 
 A new Microsoft Edge browser window will open and begin the automation process. Do NOT interact with this browser window while the script is running. Let it work automatically.
 
-<<<<<<< HEAD
+
 ---
-=======
+
 4. Monitor Progress and Results
 Keep an eye on the output in the VS Code terminal. It will show you the status of each lead being processed (e.g., "Lead 'Sham' added successfully!").
 
@@ -299,4 +299,4 @@ Click on "My Profile" (check attached screenshot if available).
 Then click "Edit".
 
 After this manual step, the script should be able to continue the automation process as expected. This might be a temporary workaround if the initial landing page is inconsistent.
->>>>>>> 7a5d7c0053085f69d576847fff97f5412091e6df
+
