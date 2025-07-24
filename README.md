@@ -1,4 +1,4 @@
-# Workfreaks ERP Lead Automation Tool
+# Workfreaks Lead Automation Tool
 
 This tool automates the process of adding new leads to the Workfreaks ERP system directly from an Excel file.
 
@@ -6,7 +6,7 @@ This tool automates the process of adding new leads to the Workfreaks ERP system
 
 ---
 
-## 🚀 Getting Started (Initial Setup - One Time)
+## 👻 Getting Started (Initial Setup - One Time)
 
 Follow these steps carefully to set up the automation tool on your computer. If you encounter any issues, please contact your secret bestie shaad (don't tell priya we are besties🤫🤫🤫).
 
@@ -109,7 +109,7 @@ The script uses several specialized Python libraries. You need to install them.
 
 ---
 
-## 🚀 How to Use the Automation Tool
+## 😈 How to Use the Automation Tool
 
 Once the initial setup is complete, you can follow these steps each time you want to add leads.
 
