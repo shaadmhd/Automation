@@ -41,7 +41,33 @@ VS Code is a powerful and free code editor that makes it easy to run this automa
 2.  Download and install the "User Installer" version for Windows (64-bit recommended).
 3.  Run the downloaded installer and follow the default installation prompts.
 
+
 #### d. Install Microsoft Visual C++ Build Tools (CRITICAL for Dependencies like NumPy/Pandas)
+
+Some Python libraries, like NumPy and Pandas (which this script uses), require underlying C/C++ components to be compiled during installation. This requires specific build tools from Microsoft. **If you skip this step, the script will not install correctly!**
+
+1. **Download Visual Studio Build Tools:**
+   - Go to the official Microsoft Visual Studio downloads page:  
+     [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)
+   ![1750581685906](image/README/1750581685906.jpg)
+   - Scroll down to the **"Tools for Visual Studio"** section.
+   - Find **"Build Tools for Visual Studio"** and click the **"Download"** button.
+
+2. **Run the Installer (`vs_buildtools.exe`):**
+   - Once downloaded, run the `vs_buildtools.exe` file.
+   - This will open the Visual Studio Installer.
+
+3. **Select Workloads (IMPORTANT):**
+   - In the Visual Studio Installer, you will see a list of "Workloads."
+   ![1750581720002](image/README/1750581720002.jpg)
+   - **Crucially, check the box for "Desktop development with C++"**. This is the primary workload that includes the necessary C++ compilers and build tools.
+
+4. **Install:**
+   - Click the **"Install"** button in the bottom right corner.
+   - This installation can be large (several gigabytes) and may take some time.
+
+5. **Restart PC (Highly Recommended):**
+   - After the installation of the build tools completes, it's highly recommended to **restart your PC**. This ensures that all necessary environment variables are correctly updated.
 
 #### e. Install Microsoft Edge WebDriver (Manual Download)
 
