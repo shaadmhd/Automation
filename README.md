@@ -1,4 +1,4 @@
-# Workfreaks ERP Lead Automation Tool
+# Workfreaks Lead Automation Tool
 
 This tool automates the process of adding new leads to the Workfreaks ERP system directly from an Excel file.
 
@@ -6,7 +6,7 @@ This tool automates the process of adding new leads to the Workfreaks ERP system
 
 ---
 
-## 🚀 Getting Started (Initial Setup - One Time)
+## 👻 Getting Started (Initial Setup - One Time)
 
 Follow these steps carefully to set up the automation tool on your computer. If you encounter any issues, please contact your secret bestie shaad (don't tell priya we are besties🤫🤫🤫).
 
@@ -66,6 +66,46 @@ Some Python libraries, like NumPy and Pandas (which this script uses), require u
 
 5.  **Restart PC (Highly Recommended):** After the installation of the build tools completes, it's highly recommended to **restart your PC**. This ensures that all necessary environment variables are correctly updated.
 
+e. Install Microsoft Edge WebDriver (Manual Download)
+
+The automation script needs a special driver (`msedgedriver.exe`) to control your Edge browser. This driver must be manually downloaded and placed in a specific location.
+
+1. **Find your Microsoft Edge browser version:**
+
+   * Open Microsoft Edge.
+
+   * Click the three dots `...` in the top-right corner.
+
+   * Go to `Help and feedback` > `About Microsoft Edge`.
+
+   * Note down the full version number (e.g., `126.0.2592.56`).
+
+2. **Download the matching `msedgedriver.exe`:**
+
+   * Go to the official Microsoft Edge WebDriver download page: <https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/>
+
+   * **CRITICAL:** Download the `msedgedriver.exe` version that **EXACTLY matches the first three parts of your Edge browser version**. For example, if your Edge is `126.0.2592.56`, download the WebDriver for `126.0.2592.x`.
+
+   * Choose the correct platform (e.g., `x64` for most modern Windows systems).
+
+3. **Create a dedicated folder for the driver:**
+
+   * On your `C:` drive, create a new folder named `SeleniumDrivers`.
+
+   * The full path should be: `C:\SeleniumDrivers`
+
+4. **Place the `msedgedriver.exe` in the folder:**
+
+   * After downloading, you will likely get a `.zip` file. Extract the `msedgedriver.exe` file from this zip.
+
+   * Copy (or move) the extracted `msedgedriver.exe` file into the `C:\SeleniumDrivers` folder you just created.
+
+5. **Important: Keep the driver updated!**
+
+   * If your Microsoft Edge browser updates to a new version, the existing `msedgedriver.exe` might stop working, causing the automation script to fail.
+
+   * If the script fails after an Edge update, repeat steps 1-4 to download the **new, matching version** of `msedgedriver.exe` and replace the old one in `C:\SeleniumDrivers`.
+
 ---
 
 ### 2. Set Up the Project in VS Code
@@ -109,7 +149,7 @@ The script uses several specialized Python libraries. You need to install them.
 
 ---
 
-## 🚀 How to Use the Automation Tool
+## 😈 How to Use the Automation Tool
 
 Once the initial setup is complete, you can follow these steps each time you want to add leads.
 
